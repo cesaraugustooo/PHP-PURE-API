@@ -6,7 +6,7 @@ $getURL = $_SERVER['REQUEST_URI'];
 $getHTTP = $_SERVER['REQUEST_METHOD'];
 
 Database::connection();
-$rota = str_replace('/RestApi', '', $getURL);
+$rota = str_replace('/ApiPurePHP', '', $getURL);
 switch($rota){
     case '/users':
         require 'routers/users.php';
