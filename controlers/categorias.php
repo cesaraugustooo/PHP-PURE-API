@@ -1,7 +1,7 @@
 <?php
 
 require_once 'models/categorias.php';
-require_once 'helpers/response.php';
+require_once 'json_requests/response.php';
 
 class categoriasController
 {

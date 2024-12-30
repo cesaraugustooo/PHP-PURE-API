@@ -1,6 +1,8 @@
 <?php
 
 require_once 'config/database.php';
+require_once 'json_requests/response.php';
+
 class Categorias
 {
     public static function getAll(){
@@ -18,7 +20,7 @@ class Categorias
         $sql->bindValue(':ativo',$dados['ativo']);
         $sql ->execute();
         if($sql->rowCount() > 0){
-            return ' Usuario inserido com sucesso!';
+            json_success_response();
         }else{
             throw new Exception("Error Processing Request", 1);
         }

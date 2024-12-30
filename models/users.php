@@ -7,7 +7,8 @@ class User{
 
     public static function getAll(){
         $db = Database::connection();
-        $sql = $db->prepare("SELECT * FROM usuarios ");
+        $sql = $db->prepare("SELECT usuarios.id_usuarios,usuarios.nif,
+        usuarios.nome_usuario,usuarios.email_usuario,usuarios.foto_usuario FROM usuarios ");
         $sql->execute();
 
         return $sql->fetchAll(PDO::FETCH_ASSOC,);
@@ -22,6 +23,7 @@ class User{
         $sql ->bindValue(':senha',$dados['senha_usuario']);
         $sql ->bindValue(':foto',$dados['foto_usuario']);
         $sql->execute();
+
         
         if($sql->rowCount() > 0){
             return 'Usuario(a) cadastrado com sucesso';

@@ -6,4 +6,7 @@ switch($getHTTP){
     case 'GET':
         turmasController::getAllturmas();
         break;
+    case 'POST':
+        turmasController::post();
+        break;
 }

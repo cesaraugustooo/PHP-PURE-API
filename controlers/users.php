@@ -1,6 +1,6 @@
 <?php
 
-require_once 'helpers/response.php';
+require_once 'json_requests/response.php';
 require_once 'models/users.php';
 
 class UserControler{
