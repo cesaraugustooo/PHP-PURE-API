@@ -4,16 +4,6 @@ Este repositório contém uma **API construída em PHP puro**, desenvolvida para
 
 ---
 
-## 🚀 Funcionalidades Principais
-
-- **Gerenciamento de Alunos**: Cadastro, consulta, atualização e exclusão de dados.
-- **Controle de Turmas**: Organização de alunos e professores por turma.
-- **Gestão de Professores**: Registro e manutenção de informações dos professores.
-- **Eventos Escolares**: Criação e gerenciamento de eventos como reuniões e palestras.
-- **Relatórios Personalizados**: Geração de relatórios baseados nos dados cadastrados.
-
----
-
 ## 🛠️ Tecnologias Utilizadas
 
 - **PHP Puro**: Desenvolvimento sem o uso de frameworks.
