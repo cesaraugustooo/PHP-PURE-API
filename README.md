@@ -21,5 +21,5 @@ Este repositório contém uma **API construída em PHP puro**, desenvolvida para
 ├── 📂 models        # Lógica de acesso e manipulação de dados (Model)
 ├── 📂 controlers    # Lida com as requisições HTTP (Controller)
 ├── 📂 routers       # Define as rotas disponíveis na API
-├── 📂 database      # Configuração e scripts do banco de dados
+├── 📂 config      # Configuração e scripts do banco de dados
 └── index.php        # Arquivo principal da aplicação
