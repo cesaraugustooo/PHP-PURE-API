@@ -22,5 +22,4 @@ Este repositório contém uma **API construída em PHP puro**, desenvolvida para
 ├── 📂 controlers    # Lida com as requisições HTTP (Controller)
 ├── 📂 routers       # Define as rotas disponíveis na API
 ├── 📂 database      # Configuração e scripts do banco de dados
-├── 📂 tests         # Scripts de teste para os endpoints
 └── index.php        # Arquivo principal da aplicação
