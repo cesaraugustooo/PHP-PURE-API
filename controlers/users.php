@@ -13,4 +13,11 @@ class UserControler{
         $user = json_decode(file_get_contents('php://input'),true);
         $result_sql = User::post($user);
     }
+    public static function get($id){
+        $user = User::get($id);
+        sendResponse(200,$user);
+    }
+    public static function delete($id){
+        $user = User::delete($id);
+    }
 }

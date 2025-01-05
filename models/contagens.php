@@ -28,4 +28,12 @@ class Contagem
         $sql->execute();
 
     }
+    public static function get($id){
+        $db = Database::connection();
+        $sql = $db->prepare("SELECT * FROM contagens WHERE id_contagen = :id ");
+        $sql->bindValue(':id',$id,PDO::PARAM_INT);
+        $sql->execute();
+        
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

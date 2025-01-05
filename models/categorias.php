@@ -13,6 +13,15 @@ class Categorias
 
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
+    public static function get($id){
+        $db = Database::connection();
+        $sql = $db->prepare("SELECT * FROM categorias WHERE ativo = 1 AND id_categoria = :id");
+        $sql->bindValue(':id',$id,PDO::PARAM_INT);
+        $sql->execute();
+
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+
+    }
     public static function post($dados){
         $db = Database::connection();
         $sql = $db->prepare("INSERT INTO categorias VALUES (null,:nome,:ativo)");

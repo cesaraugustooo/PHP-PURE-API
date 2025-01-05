@@ -35,4 +35,30 @@ class User{
 
 
     }
+    public static function get($id){
+        $db = Database::connection();
+        $sql = $db->prepare("SELECT * FROM usuarios WHERE id_usuarios = :id");
+        $sql->bindValue(':id', $id , PDO::PARAM_INT);
+        $sql->execute();
+
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public static function delete($id){
+        $db = Database::connection();
+        $sql = $db->prepare("DELETE FROM usuarios WHERE id_usuarios = :id");
+        $sql->bindValue(':id',$id, PDO::PARAM_INT);
+        $sql->execute();
+
+        if($sql->rowCount() > 0){
+            header('Content-type: application/json');
+            $response = ["response"=>'Usuario deletado com sucesso'];
+            $response = json_encode($response);
+            echo $response;
+        }else{
+            header('Content-type: application/json');
+            $response = ["response" => 'Dados invalidos'];
+            $response = json_encode($response);
+            echo $response;
+        }
+    }
 }

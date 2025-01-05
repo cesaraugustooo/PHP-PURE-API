@@ -13,4 +13,8 @@ class turmasController
         $turma = json_decode(file_get_contents('php://input'),true);
         Turmas::post($turma);
     }
+    public static function get($id){
+        $turma = Turmas::get($id);
+        sendResponse(200,$turma);
+    }
 }

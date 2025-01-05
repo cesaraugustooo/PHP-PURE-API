@@ -7,17 +7,30 @@ $getHTTP = $_SERVER['REQUEST_METHOD'];
 
 Database::connection();
 $rota = str_replace('/ApiPurePHP', '', $getURL);
-switch($rota){
-    case '/users':
+switch (true) {
+    case $rota === '/users':
         require 'routers/users.php';
         break;
-    case '/contagens':
+    case preg_match('#/users/(\d+)#', $rota, $array):
+        require 'routers/users.php';
+        break;
+    case $rota === '/contagens':
         require 'routers/contagens.php';
         break;
-    case '/categorias':
+    case preg_match('#/contagens/(\d+)#', $rota , $matches):
+        require 'routers/contagens.php';
+        break;
+    case $rota === '/categorias':
         require 'routers/categorias.php';
         break;
-    case '/turmas':
+    case preg_match('#^/categorias/(\d+)$#', $rota, $matches):
+        require 'routers/categorias.php';
+        break;
+    case $rota === '/turmas':
         require 'routers/turmas.php';
         break;
+    case preg_match('#/turmas/(\d+)#', $rota , $matches):
+        require 'routers/turmas.php';
+        break;
+    
 }

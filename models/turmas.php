@@ -20,4 +20,13 @@ class Turmas
         $sql->bindValue('categoria',$turma['categorias_id_categoria']);
         $sql->execute();
     }
+    public static function get($id){
+        $db =Database::connection();
+        $sql = $db->prepare("SELECT * FROM turmas WHERE id_turma = :id ");
+        $sql->bindValue(':id',$id,PDO::PARAM_INT);
+        $sql->execute();
+
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }

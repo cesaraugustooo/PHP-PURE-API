@@ -13,4 +13,8 @@ class contagensController
         $contagem = json_decode(file_get_contents('php://input'),true);
         return Contagem::post($contagem);
     }
+    public static function get($id){
+        $contagem = Contagem::get($id);
+        sendResponse(200,$contagem);
+    }
 }
