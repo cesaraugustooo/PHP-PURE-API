@@ -36,4 +36,5 @@ class Contagem
         
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
+    
 }

@@ -6,8 +6,7 @@ class Turmas
 {
     public static function getAll(){
         $db = Database::connection();
-        $sql = $db->prepare("SELECT turmas.id_turma,turmas.ano_turma,turmas.nome_turma,turmas.ativo,categorias.nome_categoria
-         FROM turmas LEFT JOIN categorias ON turmas.categorias_id_categoria = categorias.id_categoria WHERE turmas.ativo = 1");
+        $sql = $db->prepare("SELECT turmas.id_turma,turmas.ano_turma,turmas.nome_turma,turmas.ativo,categorias.nome_categoria FROM turmas LEFT JOIN categorias ON turmas.categorias_id_categoria = categorias.id_categoria WHERE turmas.ativo = 1");
         $sql->execute();
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -27,6 +26,14 @@ class Turmas
         $sql->execute();
 
         return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public static function delete($id){
+        $db = Database::connection();
+        $sql = $db->prepare("DELETE FROM turmas WHERE id_turma = :id");
+        $sql->bindValue(':id',$id,PDO::PARAM_INT);
+        $sql->execute();
+
+
     }
 
 }

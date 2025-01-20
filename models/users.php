@@ -24,15 +24,12 @@ class User{
         $sql ->bindValue(':foto',$dados['foto_usuario']);
         $sql->execute();
 
-        
         if($sql->rowCount() > 0){
             return 'Usuario(a) cadastrado com sucesso';
         }else{
             throw new Exception("Error ao cadastrar o usuario(a)", 1);
             
         }
-
-
 
     }
     public static function get($id){
@@ -50,15 +47,9 @@ class User{
         $sql->execute();
 
         if($sql->rowCount() > 0){
-            header('Content-type: application/json');
-            $response = ["response"=>'Usuario deletado com sucesso'];
-            $response = json_encode($response);
-            echo $response;
+            json_success_response();
         }else{
-            header('Content-type: application/json');
-            $response = ["response" => 'Dados invalidos'];
-            $response = json_encode($response);
-            echo $response;
+            json_error_response();
         }
     }
 }
