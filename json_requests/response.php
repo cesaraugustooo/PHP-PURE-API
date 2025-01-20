@@ -12,5 +12,10 @@ function json_success_response(){
     http_response_code(200);
     echo json_encode($json_code = ["status" => "success"]);
     exit;
-    
+}
+function json_error_response(){
+    header('Content-Type: application/json');
+    $response = ["status" => "dados invalidos"];
+    $response = json_encode($response);
+    echo $response;
 }
