@@ -7,7 +7,7 @@ class Contagem
     public static function getAll(){
 
         $db = Database::connection();
-        $sql = $db->prepare("SELECT contagens.id_contagen,contagens.data_contagem,contagens.hora_contagem,contagens.qtd_contagem,usuarios.id_usuarios,usuarios.nif,
+        $sql = $db->prepare("SELECT contagens.id_contagem,contagens.data_contagem,contagens.hora_contagem,contagens.qtd_contagem,usuarios.id_usuarios,usuarios.nif,
         usuarios.nome_usuario,usuarios.email_usuario,usuarios.foto_usuario,turmas.id_turma,turmas.ano_turma
         ,turmas.nome_turma
          FROM contagens LEFT JOIN usuarios ON contagens.usuarios_id_usuarios = usuarios.id_usuarios LEFT JOIN turmas ON contagens.turmas_id_turma = turmas.id_turma  ");
@@ -30,7 +30,7 @@ class Contagem
     }
     public static function get($id){
         $db = Database::connection();
-        $sql = $db->prepare("SELECT * FROM contagens WHERE id_contagen = :id ");
+        $sql = $db->prepare("SELECT * FROM contagens WHERE id_contagem = :id ");
         $sql->bindValue(':id',$id,PDO::PARAM_INT);
         $sql->execute();
         
