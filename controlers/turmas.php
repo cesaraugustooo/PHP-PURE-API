@@ -17,4 +17,7 @@ class turmasController
         $turma = Turmas::get($id);
         sendResponse(200,$turma);
     }
+    public static function delete($id){
+        $turma = Turmas::delete($id);
+    }
 }
