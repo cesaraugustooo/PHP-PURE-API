@@ -45,6 +45,7 @@ class User{
         $db = Database::connection();
         $sql = $db->prepare("UPDATE usuarios SET ativo = 0 WHERE id_usuarios = :id");
         $sql->bindValue(':id',$id, PDO::PARAM_INT);
+        
         $sql->execute();
 
         if($sql->rowCount() > 0){
