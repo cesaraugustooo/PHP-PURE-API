@@ -34,5 +34,20 @@ class Categorias
             throw new Exception("Error Processing Request", 1);
         }
     }
-   
+    public static function delete($id){
+        $db = Database::connection();
+        $sql = $db->prepare("UPDATE categorias SET ativo = 0 WHERE id_categoria = :id");
+        $sql->bindValue(':id',$id, PDO::PARAM_INT);
+        $sql->execute();
+
+        if($sql->rowCount() > 0){
+            header('Content-Type: application/json');
+            echo json_encode(["status" => "categoria desativado com sucesso!"]);       
+        }else{
+            json_error_response();
+        }
+
+  
+    }
 }
+   
