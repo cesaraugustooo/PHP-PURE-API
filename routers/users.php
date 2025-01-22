@@ -14,7 +14,7 @@ switch($getHTTP){
     case 'POST':
         UserControler::post();
         break;
-    case 'DELETE':
+    case 'PATCH':
         if(preg_match('#(\d+)#', $rota , $array)){
             $id = $array[0];
             UserControler::delete($id);
