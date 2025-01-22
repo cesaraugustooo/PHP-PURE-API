@@ -29,10 +29,17 @@ class Turmas
     }
     public static function delete($id){
         $db = Database::connection();
-        $sql = $db->prepare("DELETE FROM turmas WHERE id_turma = :id");
+        $sql = $db->prepare("UPDATE  turmas SET ativo = 0 WHERE id_turma = :id");
         $sql->bindValue(':id',$id,PDO::PARAM_INT);
         $sql->execute();
 
+        if($sql->rowCount() > 0){
+            header('Content-Type: application/json');
+            echo json_encode(["status" => "turma desativado com sucesso!"]);       
+        }else{
+            json_error_response();
+        }
+  
 
     }
 
