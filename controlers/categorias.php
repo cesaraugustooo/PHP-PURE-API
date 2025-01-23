@@ -21,4 +21,7 @@ class categoriasController
         $categoria = json_decode(file_get_contents('php://input'),true);
         $result_sql = Categorias::post($categoria);
     }
+    public static function delete($id){
+        $categoria = Categorias::delete($id);
+    }
 }
