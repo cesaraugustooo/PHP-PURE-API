@@ -21,7 +21,7 @@ class Turmas
     }
     public static function get($id){
         $db =Database::connection();
-        $sql = $db->prepare("SELECT * FROM turmas WHERE id_turma = :id ");
+        $sql = $db->prepare("SELECT * FROM turmas WHERE id_turma = :id AND ativo = 1 ");
         $sql->bindValue(':id',$id,PDO::PARAM_INT);
         $sql->execute();
 

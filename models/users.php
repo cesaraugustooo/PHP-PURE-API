@@ -35,7 +35,7 @@ class User{
     }
     public static function get($id){
         $db = Database::connection();
-        $sql = $db->prepare("SELECT * FROM usuarios WHERE id_usuarios = :id");
+        $sql = $db->prepare("SELECT * FROM usuarios WHERE id_usuarios = :id AND ativo = 1");
         $sql->bindValue(':id', $id , PDO::PARAM_INT);
         $sql->execute();
 
@@ -43,7 +43,7 @@ class User{
     }
     public static function delete($id){
         $db = Database::connection();
-        $sql = $db->prepare("UPDATE usuarios SET ativo = 0 WHERE id_usuarios = :id");
+        $sql = $db->prepare("UPDATE usuarios SET ativo = 0 WHERE id_usuarios = :id ");
         $sql->bindValue(':id',$id, PDO::PARAM_INT);
         
         $sql->execute();
