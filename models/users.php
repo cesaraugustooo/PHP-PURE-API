@@ -56,4 +56,22 @@ class User{
         }
   
     }
+    public static function update($id,$dados){
+        $db = Database::connection();
+        $sql = $db->prepare("UPDATE usuarios SET nif = :nif, nome_usuario = :usuario, email_usuario = :email, senha_usuario = :senha, foto_usuario = :foto WHERE id_usuarios = :id");
+        $sql->bindValue(':nif', $dados['nif']);
+        $sql ->bindValue(':nome',$dados['nome_usuario']);
+        $sql ->bindValue(':email',$dados['email_usuario']);
+        $sql ->bindValue(':senha',$dados['senha_usuario']);
+        $sql ->bindValue(':foto',$dados['foto_usuario']);
+        $sql ->bindValue(':id',$id,PDO::PARAM_INT);
+        $sql->execute();
+
+        if($sql->rowCount() > 0){
+            header('Content-Type: application/json');
+            echo json_encode(["status" => "usuario atualizado com sucesso!"]);       
+        }else{
+            json_error_response();
+        }
+    }
 }
