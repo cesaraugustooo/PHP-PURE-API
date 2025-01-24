@@ -19,5 +19,10 @@ switch($getHTTP){
             $id = $array[0];
             UserControler::delete($id);
         }
+    case 'PUT':
+        if(preg_match('#(\d+)#', $rota , $array)){
+            UserControler::update($array[0]);
+            break;
+        }
 
 }
