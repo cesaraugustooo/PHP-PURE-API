@@ -60,7 +60,7 @@ class User{
         $db = Database::connection();
         $sql = $db->prepare("UPDATE usuarios SET nif = :nif, nome_usuario = :usuario, email_usuario = :email, senha_usuario = :senha, foto_usuario = :foto WHERE id_usuarios = :id");
         $sql->bindValue(':nif', $dados['nif']);
-        $sql ->bindValue(':nome',$dados['nome_usuario']);
+        $sql ->bindValue(':usuario',$dados['nome_usuario']);
         $sql ->bindValue(':email',$dados['email_usuario']);
         $sql ->bindValue(':senha',$dados['senha_usuario']);
         $sql ->bindValue(':foto',$dados['foto_usuario']);
