@@ -20,4 +20,8 @@ class UserControler{
     public static function delete($id){
         $user = User::delete($id);
     }
+    public static function update($id){
+        $user = json_decode(file_get_contents('php://input'),true);
+        $result_sql = User::update($id,$user);
+    }
 }
