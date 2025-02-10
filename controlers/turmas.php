@@ -20,4 +20,8 @@ class turmasController
     public static function delete($id){
         $turma = Turmas::delete($id);
     }
+    public static function update($id){
+        $json = json_decode(file_get_contents('php://input'),true);
+        Turmas::update($id,$json);
+    }
 }
