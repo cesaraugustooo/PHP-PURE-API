@@ -42,5 +42,22 @@ class Turmas
   
 
     }
+    public static function update($id,$turma){
+        $db = Database::connection();
+        $sql = $db->prepare("UPDATE turmas SET ano_turma = :ano, nome_turma = :nome, categorias_id_categoria = :ctegoria  WHERE id_turma = :id");
+        $sql->bindValue(':ano',$turma['ano_turma']);
+        $sql->bindValue(':nome',$turma['nome_turma']);
+        $sql->bindValue(':ativo',$turma['ativo']);
+        $sql->bindValue('categoria',$turma['categorias_id_categoria']);
+        $sql->bindValue(':id',$id,PDO::PARAM_INT);
+        $sql->execute();
+
+        if($sql->rowCount() > 0){
+            header('Content-Type: application/json');
+            echo json_encode(["status" => "Turma atualizada com sucesso!"]);       
+        }else{
+            json_error_response();
+        }
+    }
 
 }
