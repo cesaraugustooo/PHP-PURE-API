@@ -19,4 +19,8 @@ switch($getHTTP){
             turmasController::delete($array[0]);
         }
         break;
+    case 'PUT':
+        if(preg_match('#(\d+)#', $rota, $array)){
+            turmasController::update($array[1]);
+        }
 }
