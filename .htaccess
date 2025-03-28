@@ -1,9 +1,7 @@
 RewriteEngine On
 
-# Se a URL for do tipo "/categorias/ID", redireciona para index.php com o ID como parâmetro
 RewriteRule ^categorias/(\d+)$ index.php?id=$1 [QSA,L]
 
-# Se o arquivo ou diretório não existir, redireciona para index.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php [QSA,L]
