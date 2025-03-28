@@ -17,4 +17,8 @@ class contagensController
         $contagem = Contagem::get($id);
         sendResponse(200,$contagem);
     }
+    public static function update($id){
+        $json = json_decode(file_get_contents('php://input'),true);
+        Contagem::update($id,$json);
+    }
 }
