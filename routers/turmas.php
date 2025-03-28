@@ -14,7 +14,7 @@ switch($getHTTP){
     case 'POST':
         turmasController::post();
         break;
-    case 'PATCH':
+    case 'DELETE':
         if(preg_match('#(\d+)#',$rota, $array)){
             turmasController::delete($array[0]);
         }
