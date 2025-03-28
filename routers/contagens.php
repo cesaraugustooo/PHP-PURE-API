@@ -14,4 +14,9 @@ switch($getHTTP){
     case 'POST':
         contagensController::post();
         break;
+    case 'PUT':
+        if(preg_match("#(\d+)#",$rota,$array)){
+            contagensController::update($array[1]);
+
+        }
 }
