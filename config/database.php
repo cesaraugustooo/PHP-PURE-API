@@ -7,8 +7,7 @@ class Database
 
     public static function connection()
     {
-        #Mude os dados referente ao se banco de dados#
-        self::$connection = new PDO('mysql:host=localhost;dbname=sistemadecontagens', 'root' , '');
+        self::$connection = new PDO('mysql:host=localhost;dbname=cont2', 'root' , '');
 
         return self::$connection;
     }
