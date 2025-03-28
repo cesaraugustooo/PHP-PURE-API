@@ -8,14 +8,14 @@ class Categorias
     public static function getAll(){
 
         $db = Database::connection();
-        $sql = $db->prepare("SELECT * FROM categorias WHERE ativo = 1");
+        $sql = $db->prepare("SELECT * FROM categorias");
         $sql ->execute();
 
         return $sql->fetchAll(PDO::FETCH_ASSOC);
     }
     public static function get($id){
         $db = Database::connection();
-        $sql = $db->prepare("SELECT * FROM categorias WHERE ativo = 1 AND id_categoria = :id");
+        $sql = $db->prepare("SELECT * FROM categorias WHERE id_categoria = :id");
         $sql->bindValue(':id',$id,PDO::PARAM_INT);
         $sql->execute();
 
@@ -24,9 +24,8 @@ class Categorias
     }
     public static function post($dados){
         $db = Database::connection();
-        $sql = $db->prepare("INSERT INTO categorias VALUES (null,:nome,:ativo)");
+        $sql = $db->prepare("INSERT INTO categorias VALUES (null,:nome)");
         $sql->bindValue(':nome',$dados['nome_categoria']);
-        $sql->bindValue(':ativo',$dados['ativo']);
         $sql ->execute();
         if($sql->rowCount() > 0){
             json_success_response();
@@ -36,7 +35,7 @@ class Categorias
     }
     public static function delete($id){
         $db = Database::connection();
-        $sql = $db->prepare("UPDATE categorias SET ativo = 0 WHERE id_categoria = :id");
+        $sql = $db->prepare("DELETE FROM categorias WHERE id_categoria = :id");
         $sql->bindValue(':id',$id, PDO::PARAM_INT);
         $sql->execute();
 
