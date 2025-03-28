@@ -1,7 +1,7 @@
 <?php
 
 require_once 'models/turmas.php';
-require_once 'json_requests/response.php';
+require_once 'c://xampp/htdocs/PHP-PURE-API/json_requests/response.php';
 
 class turmasController
 {
