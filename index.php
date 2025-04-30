@@ -32,5 +32,8 @@ switch (true) {
     case preg_match('#/turmas/(\d+)#', $rota , $matches):
         require 'routers/turmas.php';
         break;
+    case preg_match('#/chat#', $rota , $matches):
+        require 'routers/chat.php';
+        break;
     
 }
