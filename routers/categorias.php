@@ -2,7 +2,7 @@
 
 require_once 'controlers/categorias.php';
 
-$rota = str_replace('/ApiPurePHP/categorias', '', $getURL);
+$rota = str_replace('/PHP-PURE-API/categorias', '', $getURL);
 $getHTTP = $_SERVER['REQUEST_METHOD'];
 
 switch($getHTTP){
